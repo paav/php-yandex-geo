@@ -70,6 +70,8 @@ class Api
             CURLOPT_RETURNTRANSFER => 1,
             CURLOPT_HTTPGET => 1,
             CURLOPT_FOLLOWLOCATION => 1,
+            CURLOPT_SSL_VERIFYPEER => false,
+
         );
         curl_setopt_array($curl, $options);
         $data = curl_exec($curl);

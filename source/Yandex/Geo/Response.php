@@ -90,8 +90,8 @@ class Response
     public function getLatitude()
     {
         $result = null;
-        if (isset($this->_data['response']['GeoObjectCollection']['metaDataProperty']['GeocoderResponseMetaData']['Point']['pos'])) {
-            list(,$latitude) = explode(' ', $this->_data['response']['GeoObjectCollection']['metaDataProperty']['GeocoderResponseMetaData']['Point']['pos']);
+        if (isset($this->_data['response']['GeoObjectCollection']['featureMember'][0]['GeoObject']['Point']['pos'])) {
+            list(,$latitude) = explode(' ', $this->_data['response']['GeoObjectCollection']['featureMember'][0]['GeoObject']['Point']['pos']);
             $result = (float)$latitude;
         }
         return $result;
@@ -104,8 +104,8 @@ class Response
     public function getLongitude()
     {
         $result = null;
-        if (isset($this->_data['response']['GeoObjectCollection']['metaDataProperty']['GeocoderResponseMetaData']['Point']['pos'])) {
-            list($longitude,) = explode(' ', $this->_data['response']['GeoObjectCollection']['metaDataProperty']['GeocoderResponseMetaData']['Point']['pos']);
+        if (isset($this->_data['response']['GeoObjectCollection']['featureMember'][0]['GeoObject']['Point']['pos'])) {
+            list($longitude,) = explode(' ', $this->_data['response']['GeoObjectCollection']['featureMember'][0]['GeoObject']['Point']['pos']);
             $result = (float)$longitude;
         }
         return $result;
